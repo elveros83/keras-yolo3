@@ -10,15 +10,15 @@ import os
 import glob
 import xml.etree.ElementTree as ET
 
-def xml_to_csv(path, output_filename):
+def xml_to_csv(annotation_path, image_path,output_filename):
     xml_list = []
     
     with open(output_filename, "w") as train_csv_file:
-        for xml_file in glob.glob(path + '/*.xml'):
+        for xml_file in glob.glob(annotation_path + '/*.xml'):
             tree = ET.parse(xml_file)
             root = tree.getroot()
             
-            full_image_name = os.path.join(IMAGE_DIR, root.find('filename').text)
+            full_image_name = os.path.join(image_path, root.find('filename').text)
             value_str_list = ' '
             for obj in root.findall('object'):
                 
