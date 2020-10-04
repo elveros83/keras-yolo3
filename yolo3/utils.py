@@ -6,6 +6,7 @@ from PIL import Image
 import numpy as np
 from matplotlib.colors import rgb_to_hsv, hsv_to_rgb
 
+import os
 import glob
 import xml.etree.ElementTree as ET
 
